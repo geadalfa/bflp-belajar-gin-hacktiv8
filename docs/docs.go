@@ -22,6 +22,24 @@ const docTemplate = `{
     "basePath": "{{.BasePath}}",
     "paths": {
         "/cars": {
+            "get": {
+                "description": "Get details of all car",
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "cars"
+                ],
+                "summary": "Get All Car",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Car"
+                        }
+                    }
+                }
+            },
             "post": {
                 "description": "Post detials of car corresponding to the input Id",
                 "consumes": [
@@ -106,16 +124,28 @@ const docTemplate = `{
                 }
             }
         },
-        "/orders": {
-            "get": {
-                "description": "Get details of all car",
+        "/cars/{id}": {
+            "patch": {
+                "description": "Update the car corresponding to the input Id",
                 "consumes": [
+                    "application/json"
+                ],
+                "produces": [
                     "application/json"
                 ],
                 "tags": [
                     "cars"
                 ],
-                "summary": "Get details",
+                "summary": "Update car identified by the given Id",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "ID of the car to be updated",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "OK",

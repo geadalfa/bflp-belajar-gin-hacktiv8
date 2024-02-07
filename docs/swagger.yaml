@@ -23,6 +23,18 @@ info:
   version: "1.0"
 paths:
   /cars:
+    get:
+      consumes:
+      - application/json
+      description: Get details of all car
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Car'
+      summary: Get All Car
+      tags:
+      - cars
     post:
       consumes:
       - application/json
@@ -78,17 +90,25 @@ paths:
             $ref: '#/definitions/models.Car'
       tags:
       - cars
-  /orders:
-    get:
+  /cars/{id}:
+    patch:
       consumes:
       - application/json
-      description: Get details of all car
+      description: Update the car corresponding to the input Id
+      parameters:
+      - description: ID of the car to be updated
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
       responses:
         "200":
           description: OK
           schema:
             $ref: '#/definitions/models.Car'
-      summary: Get details
+      summary: Update car identified by the given Id
       tags:
       - cars
 swagger: "2.0"

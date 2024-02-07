@@ -54,7 +54,6 @@ func CreateCar(ctx *gin.Context) {
 // @Param id path int true "ID of the car to be updated"
 // @Success 200 {object} models.Car
 // @Router /cars/{id} [patch]
-
 func UpdateCar(ctx *gin.Context) {
 	carID := ctx.Param("id")
 
@@ -131,13 +130,13 @@ func DeleteCar(c *gin.Context) {
 }
 
 // GetAllCar godoc
-// @Summary Get details
+// @Summary Get All Car
 // @Description Get details of all car
 // @Tags cars
 // @Accept json
 // @Produces json
 // @Success 200 {object} models.Car
-// @Router /orders [get]
+// @Router /cars [get]
 func GetAllCar(ctx *gin.Context) {
 	var db = database.GetDB()
 
