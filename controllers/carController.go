@@ -115,7 +115,7 @@ func GetCar(ctx *gin.Context) {
 // @Produce json
 // @Param Id path int true "ID of the car to be deleted"
 // @Success 204 "No Content"
-// @Router /cars/{Id} {delete}
+// @Router /cars/{Id} [delete]
 func DeleteCar(c *gin.Context) {
 	var db = database.GetDB()
 

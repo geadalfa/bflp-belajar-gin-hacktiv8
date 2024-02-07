@@ -41,6 +41,24 @@ paths:
       tags:
       - cars
   /cars/{Id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete the order corresponding to the input Id
+      parameters:
+      - description: ID of the car to be deleted
+        in: path
+        name: Id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+      summary: Delete car identified by the given Id
+      tags:
+      - cars
     get:
       consumes:
       - application/json
